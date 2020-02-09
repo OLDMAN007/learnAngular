@@ -1,0 +1,22 @@
+h2{
+    text-align: center;
+}
+
+label{
+    text-align: center;
+}
+
+.peopleSignUp{
+    width: 500px;
+    margin: auto;
+
+    padding-top: 40px;
+}
+
+.form-group{
+    padding-top: 30px;
+}
+
+button{
+    text-align: right;
+}
