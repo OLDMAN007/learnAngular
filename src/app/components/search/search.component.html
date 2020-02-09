@@ -1,0 +1,18 @@
+
+<div class="main">
+    <div class="search">
+        <div class="col-sm-9">
+            <input class="form-control" type="text" name="search" id="search" [(ngModel)]="keyword" (keydown)="keyDown($event)">
+        </div>
+        <div class="col-sm-3">
+            <button type="button" class="btn btn-default" (click)="doSearch()">search</button>
+        </div>
+    </div>
+    <hr>
+    <div class="list">
+        <ul>
+            <li *ngFor="let history of historyList">{{history}}</li>
+        </ul>
+    </div>
+</div>
+

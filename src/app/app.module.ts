@@ -12,7 +12,8 @@ import { NewsComponent } from './components/news/news.component';
 import { HomeComponent } from './components/home/home.component';
 
 import { FormsModule } from '@angular/forms';
-import { FormComponent } from './components/form/form.component'
+import { FormComponent } from './components/form/form.component';
+import { SearchComponent } from './components/search/search.component'
 
 /**@Ngmodule裝飾器 接收一個願數據對象，告訴angular如何編譯和啟動應用 */
 @NgModule({
@@ -21,7 +22,8 @@ import { FormComponent } from './components/form/form.component'
     AppComponent,
     NewsComponent,
     HomeComponent,
-    FormComponent
+    FormComponent,
+    SearchComponent
   ],
   /**配置當前模塊運行依賴的其他模塊 */
   imports: [

@@ -1,0 +1,18 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.main{
+    width: 500px;
+    margin:100px auto;
+
+    padding-top: 40px;
+
+    border: 1px solid #eee;
+}
+ol,ul{
+    list-style-type: none;
+}
+.list{
+    margin: 50px;
+}
