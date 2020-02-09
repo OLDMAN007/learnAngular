@@ -1,0 +1,51 @@
+<p class="red">news works!</p>
+
+
+    <h1>angular模板裡面綁定數據</h1>
+        <h2>{{title}}</h2>
+        <h3>{{msg}}</h3>
+
+    <hr>
+    <h1>angular模板裡面綁定屬性</h1>
+        <div title="我是一個title">
+            鼠標喵上去看一下
+        </div>
+        <div [title]="student">
+            zhangsan
+        </div>
+
+    <hr>
+    <h1>angular模板裡面綁定HTML</h1>
+    <div>
+        {{content}}
+        <span [innerHTML]="content"></span>
+    </div>
+
+    <hr>
+    <h1>angular模板裡面允許簡單的運算</h1>
+    1+1={{1+1}}
+
+    <hr>
+    <h1>angular模板裡面的數據循環</h1>
+    <div>
+        <ol>
+            <li *ngFor="let item of arr">{{item}}</li>
+        </ol>
+        <ul >
+            <li *ngFor="let item of userinfo">
+                {{item.username}}-----{{item.age}}
+            </li>
+        </ul>
+        <br>
+        <ul>
+            <li *ngFor="let car of cars">
+                <h2>{{car.cate}}</h2>
+                <ol>
+                    <li *ngFor="let list of car.list">
+                        {{list.title}}----{{list.price}}
+                    </li>
+                </ol>
+            </li>
+        </ul>
+    </div>
+        

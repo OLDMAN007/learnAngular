@@ -1,0 +1,103 @@
+<p>home works!</p>
+
+<h1>引入圖片</h1>
+<img src="assets/images/red.png" alt="收藏">
+<img [src]="picUrl" >
+
+<hr>
+<h1>循環數據 顯示數據的索引值（key）</h1>
+<ul>
+    <li *ngFor="let item of list;let key=index">
+        {{key}}----{{item.title}}
+    </li>
+</ul>
+
+<hr>
+<h1>條件判斷語句 *ngIf</h1>
+<div *ngIf="flag">
+    <img src="assets/images/red.png" alt="">
+</div>
+<div *ngIf="!flag">
+    <img src="assets/images/yellow.png" alt="">
+</div>
+
+<ul>
+    <li *ngFor="let item of list;let key=index">
+        <span *ngIf="key==1" class="red">{{key}}----{{item.title}}</span>
+        <span *ngIf="key!=1">{{key}}----{{item.title}}</span>
+    </li>
+</ul>
+
+<hr>
+<h1>條件判斷語句 *ngSwitch</h1>
+<span [ngSwitch]="orderStatus">
+<p *ngSwitchCase=1>
+    已支付
+</p>
+<p *ngSwitchCase=2>
+    已支付並確認
+</p>
+<p *ngSwitchCase=3>
+    已發貨
+</p>
+<p *ngSwitchCase=4>
+    已售貨
+</p>
+<p *ngSwitchDefault>
+    訂單無效
+</p>
+</span>
+
+<hr>
+<h1>屬性 [ngClass][ngStyle]</h1>
+<div class="red">
+    ngClass屬性演示
+</div>
+<div [ngClass]="{'red': false, 'orange': true}">
+    ngClass屬性演示
+</div>
+<div [ngClass]="{'orange': flag, 'blue': !flag}">
+    ngClass屬性演示
+</div>
+
+<strong>循環數組，讓數組的第一個元素為red</strong>
+<ul>
+    <li *ngFor="let item of list; let key=index">
+        <span [ngClass]="{'red': key==0, 'orange': key==1, 'blue': key==2}">
+            {{item.title}}
+        </span>
+    </li>
+</ul>
+
+<p>我是一個p標籤</p>
+<p style="color: red;">我是一個p標籤</p>
+<p [ngStyle]="{'color': 'red'}">我是一個p標籤</p>
+<p [ngStyle]="{'color': attr}">我是一個p標籤</p>
+
+<hr>
+<h1>管道</h1>
+<span>{{today}}</span><br>
+<span>{{today | date:'yyyy-MM-dd HH:mm:ss'}}</span>
+
+<hr>
+<h1>事件</h1>
+<strong>{{title}}</strong><br>
+<button (click)="run()">執行事件</button><br>
+<button (click)="getDate()">執行事件獲取數據</button><br>
+<button (click)="setDate()">執行事件改變數據</button>
+
+<hr>
+<h1>表單事件 事件對象</h1>
+<!-- <form action=""> -->
+    <!-- <input type="text" name="" id="" (keydown)="keyDown()"><br> -->
+    keyDown<input type="text" (keydown)="keyDown($event)"><br>
+    keyUp <input type="text" (keyup)="keyUp($event)"><br>
+    <button (click)="runEvent($event)">執行事件獲取事件對象</button>
+<!-- </form> -->
+
+<hr>
+<h1>雙向數據綁定--MVVM (只是針對表單)</h1>
+{{keyWord}} <br>
+<input type="text" name="" id="" [(ngModel)]="keyWord"><br>
+<button (click)="changeKeyWord()"> 改變keyWord</button><br>
+<button (click)="getKeyWord()"> 改變keyWord</button>
