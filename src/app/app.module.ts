@@ -17,7 +17,10 @@ import { SearchComponent } from './components/search/search.component';
 import { TodolistComponent } from './components/todolist/todolist.component'
 
 //引入服務
-import { StorageService } from './services/storage.service'
+import { StorageService } from './services/storage.service';
+import { DomAndViewChildComponent } from './components/dom-and-view-child/dom-and-view-child.component';
+import { HeaderComponent } from './components/header/header.component';
+import { TransitionComponent } from './components/transition/transition.component'
 
 /**@Ngmodule裝飾器 接收一個願數據對象，告訴angular如何編譯和啟動應用 */
 @NgModule({
@@ -28,7 +31,10 @@ import { StorageService } from './services/storage.service'
     HomeComponent,
     FormComponent,
     SearchComponent,
-    TodolistComponent
+    TodolistComponent,
+    DomAndViewChildComponent,
+    HeaderComponent,
+    TransitionComponent
   ],
   /**配置當前模塊運行依賴的其他模塊 */
   imports: [

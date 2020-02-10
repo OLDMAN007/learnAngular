@@ -34,5 +34,32 @@
 			  	//調用服務裡的方法
 			    console.log(storage.get()) ;
 			  }
+## 5. 雙向數據綁定
+	5.1 app.module.ts 引入表單相關模塊
+		import { FormsModule } from '@angular/forms';
+	5.2 app.module.ts中聲明模塊
+		import:[FormsModule]
+	5.3 組件ts中聲明一個數據
+		public usernames:tring = "hepburn";
+	5.4 前端綁定數據
+		<input type="text" name="" id="" [(ngModel)]="username">
+## 6. 獲取dom節點
+	- 原生js
+		let box2:any = document.getElementById("box2");
+		console.log(box2.innerHTML);
+		box2.style.color = "blue";
+	- ViewChild
+		1. 模板中給dom起一個名字
+			<div #myBox></div>
+		2. 在業務邏輯中引入ViewChild
+			import { ViewChild } from '@angular/core';
+		3. 獲取dom節點
+			@ViewChild("myBox") myBox:any;
+		4. ngAfterViewInit生命週期函數裡面獲取dom
+			console.log(this.myBox.nativeElement);
+			this.myBox.nativeElement.style.width = "120px";
+			this.myBox.nativeElement.style.height = "60px";
+			this.myBox.nativeElement.style.background = "yellow";
+			console.log(this.myBox.nativeElement.innerHTML);
 
 

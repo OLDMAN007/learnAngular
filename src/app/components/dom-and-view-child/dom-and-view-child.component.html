@@ -1,0 +1,17 @@
+<!-- <p>dom-and-view-child works!</p> -->
+<app-header #header></app-header>
+
+<h1>DOM操作演示</h1>
+<div id="box1">
+    this is box1
+</div>
+<div id="box2" *ngIf="flag">
+    this is box2
+</div>
+
+<hr>
+<h1>ViewChild操作演示</h1>
+<div #myBox>
+    我是一個dom節點
+</div>
+<button (click)="runHeader()">runHeader</button>
