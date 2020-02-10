@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StorageService } from '../../services/storage.service';
 
 @Component({
   selector: 'app-todolist',
@@ -11,9 +12,16 @@ export class TodolistComponent implements OnInit {
 
   public historyList:any[] = [];
 
-  constructor() { }
+  constructor(
+    private storage: StorageService
+  ) { }
 
   ngOnInit(): void {
+    let todolist:any = this.storage.get("toDoList");
+
+    if(todolist){
+      this.historyList = todolist;
+    }
   }
 
   keyDown(e){
@@ -33,6 +41,8 @@ export class TodolistComponent implements OnInit {
         title:keyword,
         status:0
       });
+
+      this.storage.set("toDoList", this.historyList);
     } else{
       alert("數據已存在!");
     }
@@ -41,6 +51,8 @@ export class TodolistComponent implements OnInit {
 
   doDelete(key){
     this.historyList.splice(key,1);
+
+    this.storage.set("toDoList", this.historyList);
   }
 
   hasKeyword(historyList:any, keyword:any){
@@ -63,7 +75,12 @@ export class TodolistComponent implements OnInit {
     return false;
   }
 
+  //去除 x 的開頭和結尾的空格
   trim(x:string){
     return x.replace(/^\s+|\s+$/gm,'');
+  }
+
+  checkboxChange(){
+    this.storage.set("toDoList", this.historyList);
   }
 }

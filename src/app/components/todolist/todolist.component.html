@@ -15,7 +15,7 @@
             <h4>待辦事項</h4>
             <ul>
                 <li *ngFor="let history of historyList; let key = index" [hidden]="history.status==1">
-                    <input type="checkbox" name="status" id="status" [(ngModel)]="history.status" >
+                    <input type="checkbox" name="status" id="status" [(ngModel)]="history.status" (change)="checkboxChange()">
                     {{history.title}}
                     <button type="button" class="btn btn-default btn-xs" (click)="doDelete(key)">x</button>
                 </li>
@@ -25,7 +25,7 @@
             <h4>已完成事項</h4>
             <ul>
                 <li *ngFor="let history of historyList; let key = index" [hidden]="history.status==0">
-                    <input type="checkbox" name="status" id="status" [(ngModel)]="history.status" >
+                    <input type="checkbox" name="status" id="status" [(ngModel)]="history.status" (change)="checkboxChange()">
                     {{history.title}}
                     <button type="button" class="btn btn-default btn-xs" (click)="doDelete(key)">x</button>
                 </li>

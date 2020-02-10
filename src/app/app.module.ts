@@ -16,6 +16,9 @@ import { FormComponent } from './components/form/form.component';
 import { SearchComponent } from './components/search/search.component';
 import { TodolistComponent } from './components/todolist/todolist.component'
 
+//引入服務
+import { StorageService } from './services/storage.service'
+
 /**@Ngmodule裝飾器 接收一個願數據對象，告訴angular如何編譯和啟動應用 */
 @NgModule({
   /**配置當前項目運行的組件 */
@@ -34,7 +37,7 @@ import { TodolistComponent } from './components/todolist/todolist.component'
     FormsModule 
   ],
   /**配置項目所需要的服務 */
-  providers: [],
+  providers: [StorageService],
   /**執行應用的主視圖（稱為根組件）通過引導根AppModule來啟動應用，這裡一般寫的是根組件 */
   bootstrap: [AppComponent]
 })
