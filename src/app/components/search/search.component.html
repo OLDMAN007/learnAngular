@@ -11,7 +11,10 @@
     <hr>
     <div class="list">
         <ul>
-            <li *ngFor="let history of historyList">{{history}}</li>
+            <li *ngFor="let history of historyList; let key = index">
+                {{history}}
+                <button type="button" class="btn btn-default btn-xs" (click)="doDelete(key)">x</button>
+            </li>
         </ul>
     </div>
 </div>
