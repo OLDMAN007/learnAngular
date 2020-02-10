@@ -23,9 +23,14 @@ export class TodolistComponent implements OnInit {
   }
 
   addDate(){
-    if(!this.hasKeyword(this.historyList, this.keyword)){
+    let keyword = this.trim(this.keyword);
+    if (keyword == null || keyword == ""){
+      alert("空數據");
+      return null;
+    }
+    if(!this.hasKeyword(this.historyList, keyword)){
       this.historyList.push({
-        title:this.keyword,
+        title:keyword,
         status:0
       });
     } else{
@@ -46,8 +51,8 @@ export class TodolistComponent implements OnInit {
     //     return true;
     //   }
     // });
-
-    if(!keyword) return false;
+  
+    if(keyword == null) return false;
 
     for(let i=0;i<historyList.length; i++){
       if(historyList[i].title == keyword){
@@ -58,4 +63,7 @@ export class TodolistComponent implements OnInit {
     return false;
   }
 
+  trim(x:string){
+    return x.replace(/^\s+|\s+$/gm,'');
+  }
 }
