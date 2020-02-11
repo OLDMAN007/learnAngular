@@ -89,7 +89,6 @@
 				this.footer.run();
 		- @Output
 			1. 子組件引入 Output 和 EventEmitter 
-			
 	- 非父子組件通訊
 		1. 使用localStorage
 		2. 使用服務
