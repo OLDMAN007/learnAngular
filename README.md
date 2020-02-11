@@ -61,5 +61,35 @@
 			this.myBox.nativeElement.style.height = "60px";
 			this.myBox.nativeElement.style.background = "yellow";
 			console.log(this.myBox.nativeElement.innerHTML);
-
-
+## 7. 組件通訊
+	- 子組件獲取父組件中的數據和方法
+		1 在父組件中聲明需要傳遞的數據或方法
+			public msg:string = "parent component msg";
+		2 父組件調用子組件header時傳入mgs
+			<app-header [msg] = "mgs"></app-header>
+		3 子組件中接收參數或方法
+			import { Input } from '@angular/core';
+			@Input() msg:any;
+		4 父組件中使用參數或方法
+		5 可以將整個父組件傳給子組件
+			<app-header [parentComponent] = "this"></app-header>
+	- 父組件獲取子組件中的數據和方法
+		- ViewChild
+			1. 在子組件中聲明數據或方法
+				public msg:string = "child component msg";
+				run(){
+					console.log("child method run");
+				}
+			2. 父組件引用子組件，並聲明dom節點
+				<app-footer #footer></app-footer>
+			3. 父組件獲取子組件的數據或執行子組件的方法
+				import { ViewChild } from '@angular/core';
+				@ViewChild("footer") footer:any;
+				this.footer.msg;
+				this.footer.run();
+		- @Output
+			1. 子組件引入 Output 和 EventEmitter 
+			
+	- 非父子組件通訊
+		1. 使用localStorage
+		2. 使用服務

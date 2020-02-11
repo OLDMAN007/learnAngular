@@ -1,0 +1,10 @@
+<!-- <p>news2 works!</p> -->
+
+<app-footer2 #footer (outer) = "run($event)"></app-footer2>
+
+<hr>
+<div>
+    我是新聞組件
+</div>
+<button (click)="getChildMsg()">獲取子組件的數據</button>
+<button (click)="runChildMethod()">執行子組件的run方法</button>

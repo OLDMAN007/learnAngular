@@ -8,19 +8,26 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 //根組件
 import { AppComponent } from './app.component';
+import { FormsModule } from '@angular/forms';
+
+//component1
 import { NewsComponent } from './component1/news/news.component';
 import { HomeComponent } from './component1/home/home.component';
-
-import { FormsModule } from '@angular/forms';
 import { FormComponent } from './component1/form/form.component';
 import { SearchComponent } from './component1/search/search.component';
 import { TodolistComponent } from './component1/todolist/todolist.component'
-
-//引入服務
-import { StorageService } from './service1/storage.service';
 import { DomAndViewChildComponent } from './component1/dom-and-view-child/dom-and-view-child.component';
 import { HeaderComponent } from './component1/header/header.component';
 import { TransitionComponent } from './component1/transition/transition.component'
+
+//引入服務
+import { StorageService } from './service1/storage.service';
+
+//component2
+import { News2Component } from './component2/news2/news2.component';
+import { Header2Component } from './component2/header2/header2.component';
+import { Footer2Component } from './component2/footer2/footer2.component';
+import { Home2Component } from './component2/home2/home2.component';
 
 /**@Ngmodule裝飾器 接收一個願數據對象，告訴angular如何編譯和啟動應用 */
 @NgModule({
@@ -34,7 +41,11 @@ import { TransitionComponent } from './component1/transition/transition.componen
     TodolistComponent,
     DomAndViewChildComponent,
     HeaderComponent,
-    TransitionComponent
+    TransitionComponent,
+    News2Component,
+    Header2Component,
+    Footer2Component,
+    Home2Component
   ],
   /**配置當前模塊運行依賴的其他模塊 */
   imports: [
