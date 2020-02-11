@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { StorageService } from '../../services/storage.service';
+import { StorageService } from '../../service1/storage.service';
 
 @Component({
   selector: 'app-todolist',

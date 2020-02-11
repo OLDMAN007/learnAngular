@@ -8,19 +8,19 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 //根組件
 import { AppComponent } from './app.component';
-import { NewsComponent } from './components/news/news.component';
-import { HomeComponent } from './components/home/home.component';
+import { NewsComponent } from './component1/news/news.component';
+import { HomeComponent } from './component1/home/home.component';
 
 import { FormsModule } from '@angular/forms';
-import { FormComponent } from './components/form/form.component';
-import { SearchComponent } from './components/search/search.component';
-import { TodolistComponent } from './components/todolist/todolist.component'
+import { FormComponent } from './component1/form/form.component';
+import { SearchComponent } from './component1/search/search.component';
+import { TodolistComponent } from './component1/todolist/todolist.component'
 
 //引入服務
-import { StorageService } from './services/storage.service';
-import { DomAndViewChildComponent } from './components/dom-and-view-child/dom-and-view-child.component';
-import { HeaderComponent } from './components/header/header.component';
-import { TransitionComponent } from './components/transition/transition.component'
+import { StorageService } from './service1/storage.service';
+import { DomAndViewChildComponent } from './component1/dom-and-view-child/dom-and-view-child.component';
+import { HeaderComponent } from './component1/header/header.component';
+import { TransitionComponent } from './component1/transition/transition.component'
 
 /**@Ngmodule裝飾器 接收一個願數據對象，告訴angular如何編譯和啟動應用 */
 @NgModule({
