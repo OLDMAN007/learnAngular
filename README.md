@@ -92,3 +92,20 @@
 	- 非父子組件通訊
 		1. 使用localStorage
 		2. 使用服務
+## 8. 生命週期函數
+	- ngOnChanges()
+		當 Angular（重新）設定資料繫結輸入屬性時響應。 該方法接受當前和上一屬性值的 SimpleChanges 物件在ngOnInit() 之前以及所繫結的一個或多個輸入屬性的值發生變化時都會呼叫。
+	- ngOnInit()
+		在 Angular 第一次顯示資料繫結和設定指令/元件的輸入屬性之後，初始化指令/元件。在第一輪 ngOnChanges() 完成之後呼叫，只調用一次。
+	- ngDoCheck()
+		檢測，並在發生 Angular 無法或不願意自己檢測的變化時作出反應。在每個變更檢測週期中，緊跟在 ngOnChanges() 和 ngOnInit() 後面呼叫。
+	- ngAfterContentInit()
+		當 Angular 把外部內容投影進元件/指令的檢視之後呼叫。第一次 ngDoCheck() 之後呼叫，只調用一次。
+	- ngAfterContentChecked()
+		每當 Angular 完成被投影元件內容的變更檢測之後呼叫。ngAfterContentInit() 和每次 ngDoCheck() 之後呼
+	- ngAfterViewInit()
+		當 Angular 初始化完元件檢視及其子檢視之後呼叫。第一次 ngAfterContentChecked() 之後呼叫，只調用一次。
+	- ngAfterViewChecked()
+		每當 Angular 做完元件檢視和子檢視的變更檢測之後呼叫。ngAfterViewInit() 和每次 ngAfterContentChecked() 之後呼叫。
+	- ngOnDestroy()
+		每當 Angular 每次銷毀指令/元件之前呼叫並清掃。 在這兒反訂閱可觀察物件和分離事件處理器，以防記憶體洩漏。在 Angular 銷毀指令/元件之前呼叫。
