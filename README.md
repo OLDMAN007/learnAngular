@@ -109,3 +109,99 @@
 		每當 Angular 做完元件檢視和子檢視的變更檢測之後呼叫。ngAfterViewInit() 和每次 ngAfterContentChecked() 之後呼叫。
 	- ngOnDestroy()
 		每當 Angular 每次銷毀指令/元件之前呼叫並清掃。 在這兒反訂閱可觀察物件和分離事件處理器，以防記憶體洩漏。在 Angular 銷毀指令/元件之前呼叫。
+## 9. 異步數據流
+	- 回調函數
+		1. 在服務中編寫方法
+			callbackData(callback){
+				setTimeout(() => {
+				var username = "callback";
+				callback(username);
+				}, 1000);
+			}
+		2. 組件中調用方法
+			this.request.callbackData((data)=>{
+				console.log(data);
+			})
+	- 事件監聽/發布訂閱
+		
+	- promise
+		1. 在服務中編寫方法
+			getPromiseData(){
+				return new Promise((resolve, rejects)=> {
+				setTimeout(() => {
+					var username = "promise";
+					resolve(username);
+				}, 1000);
+				})
+			}
+		2. 組件中調用
+			let promise = this.request.getPromiseData();
+			promise.then((data)=>{
+				console.log(data);
+			})
+	- Rxjs
+		1. 在服務中編寫方法
+			getRxjsData(){
+				return new Observable<any>(observer =>{
+				setTimeout(() => {
+					var username = "rxjs";
+					observer.next(username);
+					// observer.error("返回失敗數據");
+				}, 1000);
+				})
+			}
+		2. 組件中調用
+			let rxjsData = this.request.getRxjsData();
+			rxjsData.subscribe((data)=>{
+				console.log(data);
+			})
+		- rxjs 要比 promise 強大的多, rxjs可以中途撤回、發射多個值、提供多種工具函數
+			- 取消訂閱
+				let treem = this.request.getRxjsData();
+				let t = treem.subscribe((data)=>{
+					console.log(data);
+				})
+				setTimeout(() => {
+					t.unsubscribe();   //取消訂閱
+				}, 1000);
+			- 多次執行
+				getRxjsIntervalData(){
+					let count = 0;
+					return new Observable<any>(observer =>{
+					setInterval(()=>{
+						count++;
+						let username = "rxjs interval " + count;
+						observer.next(username);
+					},1000)
+					})
+				}
+			- 工具函數 map filter
+				1. 引入依賴
+					import { map, filter } from 'rxjs/operators';
+				2. 編寫服務
+					getRxjsIntervalNum(){
+						let count = 0;
+						return new Observable<number>(observer => {
+						setInterval(()=>{
+							count++;
+							observer.next(count);
+						},1000)
+						})
+					}
+				3. 使用工具函數
+					let rxjsIntervalNum = this.request.getRxjsIntervalNum();
+					let r = rxjsIntervalNum.pipe(
+						filter((value) => {
+						if(value % 2 ==0){
+							return true;
+						}
+						}),
+						map((value) => {
+						return value * value;
+						})
+					).subscribe((data) => {
+						console.log(data);
+					})
+					setTimeout(() => {
+						r.unsubscribe();
+					}, 10000);

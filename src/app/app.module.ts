@@ -22,12 +22,16 @@ import { TransitionComponent } from './component1/transition/transition.componen
 
 //引入服務
 import { StorageService } from './service1/storage.service';
+import { Request2Service } from './service2/request2.service';
 
 //component2
 import { News2Component } from './component2/news2/news2.component';
 import { Header2Component } from './component2/header2/header2.component';
 import { Footer2Component } from './component2/footer2/footer2.component';
 import { Home2Component } from './component2/home2/home2.component';
+
+//component3
+import { Home3Component } from './component3/home3/home3.component';
 
 /**@Ngmodule裝飾器 接收一個願數據對象，告訴angular如何編譯和啟動應用 */
 @NgModule({
@@ -45,7 +49,8 @@ import { Home2Component } from './component2/home2/home2.component';
     News2Component,
     Header2Component,
     Footer2Component,
-    Home2Component
+    Home2Component,
+    Home3Component
   ],
   /**配置當前模塊運行依賴的其他模塊 */
   imports: [
@@ -54,7 +59,10 @@ import { Home2Component } from './component2/home2/home2.component';
     FormsModule 
   ],
   /**配置項目所需要的服務 */
-  providers: [StorageService],
+  providers: [
+    StorageService,
+    Request2Service
+  ],
   /**執行應用的主視圖（稱為根組件）通過引導根AppModule來啟動應用，這裡一般寫的是根組件 */
   bootstrap: [AppComponent]
 })
