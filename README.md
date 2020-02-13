@@ -253,3 +253,23 @@
 				})
 			}
 	- 使用第三方模塊 axios 請求數據
+## 11. 路由
+	1. 創建帶路由的項目
+	2. 創建所需組件
+	3. 在 app-routing.module.ts 中引入創建的組件
+		import { Home4Component } from './component4/home4/home4.component';
+		import { News4Component } from './component4/news4/news4.component';
+		import { Product4Component } from './component4/product4/product4.component';
+	4. 在 app-routing.module.ts 中配置路由
+		const routes: Routes = [
+			{
+				path: "home",
+				component: Home4Component
+			},{
+				path: "news",
+				component: News4Component
+			},{
+				path: "product",
+				component: Product4Component
+			},
+		];

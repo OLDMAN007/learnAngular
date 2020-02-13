@@ -4,10 +4,11 @@
 import { BrowserModule } from '@angular/platform-browser';
 //angular核心模塊
 import { NgModule } from '@angular/core';
-
+//路由配置模塊
 import { AppRoutingModule } from './app-routing.module';
 //根組件
 import { AppComponent } from './app.component';
+
 import { FormsModule } from '@angular/forms';
 
 //component1
@@ -35,6 +36,11 @@ import { Home3Component } from './component3/home3/home3.component';
 import { New3Component } from './component3/new3/new3.component';
 import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 
+//component4
+import { Home4Component } from './component4/home4/home4.component';
+import { News4Component } from './component4/news4/news4.component';
+import { Product4Component } from './component4/product4/product4.component';
+
 /**@Ngmodule裝飾器 接收一個願數據對象，告訴angular如何編譯和啟動應用 */
 @NgModule({
   /**配置當前項目運行的組件 */
@@ -53,7 +59,10 @@ import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
     Footer2Component,
     Home2Component,
     Home3Component,
-    New3Component
+    New3Component,
+    Home4Component,
+    News4Component,
+    Product4Component
   ],
   /**配置當前模塊運行依賴的其他模塊 */
   imports: [
