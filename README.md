@@ -205,3 +205,51 @@
 					setTimeout(() => {
 						r.unsubscribe();
 					}, 10000);
+## 10. 數據交互
+	- get 請求數據
+		1. app.module.ts 中引入 HttpClientModule 並注入
+			import { HttpClientModule } from '@angular/common/http';
+			imports: [ HttpClientModule ]
+		2. 組件中引入 HttpClient 並聲明
+			import { HttpClient } from '@angular/common/http';
+			constructor(
+				private httpClient: HttpClient
+			) { }
+		3. get 請求數據
+			getData(){
+				let api = "http://a.itying.com/api/productlist";
+				this.httpClient.get(api).subscribe((response) => {
+					console.log(response);
+				})
+			}
+	- post 提交數據
+		1. 同上
+		2. 組件中引入 HttpClient, HttpHeaders 並注入 HttpClient
+			import { HttpClient, HttpHeaders } from '@angular/common/http';
+			constructor(
+				private httpClient: HttpClient
+			) { }
+		3. post 提交數據
+			doPost(){
+				const httpOptions = { headers: new HttpHeaders({'Content-Type': 'application/json'}) };
+				let api = "http://127.0.0.1:3000/doLogin";
+				this.httpClient.post(api, {'username':'harper','age':13}, httpOptions).subscribe((response) => {
+					console.log(response);
+				})
+			}
+	- jsonp 請求數據
+		1. app.module.ts 中引入 HttpClientModule, HttpClientJsonpModule 並注入
+			import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
+			imports: [ HttpClientModule, HttpClientJsonpModule ]
+		2. import { HttpClient } from '@angular/common/http';
+			constructor(
+				private httpClient: HttpClient
+			) { }
+		3. jsonp 請求數據
+			getJsonpData(){
+				let api = "http://a.itying.com/api/productlist";
+				this.httpClient.jsonp(api, 'callback').subscribe((response) => {
+					console.log(response);
+				})
+			}
+	- 使用第三方模塊 axios 請求數據

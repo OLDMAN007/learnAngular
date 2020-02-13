@@ -32,6 +32,8 @@ import { Home2Component } from './component2/home2/home2.component';
 
 //component3
 import { Home3Component } from './component3/home3/home3.component';
+import { New3Component } from './component3/new3/new3.component';
+import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 
 /**@Ngmodule裝飾器 接收一個願數據對象，告訴angular如何編譯和啟動應用 */
 @NgModule({
@@ -50,13 +52,16 @@ import { Home3Component } from './component3/home3/home3.component';
     Header2Component,
     Footer2Component,
     Home2Component,
-    Home3Component
+    Home3Component,
+    New3Component
   ],
   /**配置當前模塊運行依賴的其他模塊 */
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule 
+    FormsModule,
+    HttpClientModule,
+    HttpClientJsonpModule 
   ],
   /**配置項目所需要的服務 */
   providers: [
