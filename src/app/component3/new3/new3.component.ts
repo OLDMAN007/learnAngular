@@ -8,7 +8,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class New3Component implements OnInit {
 
-  private data:any[] = [];
+  public data:any[] = [];
 
   constructor(
     private httpClient: HttpClient

@@ -254,22 +254,86 @@
 			}
 	- 使用第三方模塊 axios 請求數據
 ## 11. 路由
-	1. 創建帶路由的項目
-	2. 創建所需組件
-	3. 在 app-routing.module.ts 中引入創建的組件
-		import { Home4Component } from './component4/home4/home4.component';
-		import { News4Component } from './component4/news4/news4.component';
-		import { Product4Component } from './component4/product4/product4.component';
-	4. 在 app-routing.module.ts 中配置路由
-		const routes: Routes = [
-			{
-				path: "home",
-				component: Home4Component
-			},{
-				path: "news",
-				component: News4Component
-			},{
-				path: "product",
-				component: Product4Component
-			},
-		];
+	- 跳轉頁面
+		1. 創建帶路由的項目
+		2. 創建所需組件
+		3. 在 app-routing.module.ts 中引入創建的組件
+			import { Home4Component } from './component4/home4/home4.component';
+			import { News4Component } from './component4/news4/news4.component';
+			import { Product4Component } from './component4/product4/product4.component';
+		4. 在 app-routing.module.ts 中配置路由
+			const routes: Routes = [
+				{
+					path: "home",
+					component: Home4Component
+				},{
+					path: "news",
+					component: News4Component
+				},{
+					path: "product",
+					component: Product4Component
+				},
+			];
+	- 路由傳值
+		- get 傳值
+			1. 跳轉
+				<li *ngFor="let item of list; let key = index">
+					<a [routerLink]="[ '/news/newsContent' ]" [queryParams]="{aid:key}">{{key}---{{item}}</a>
+				</li>
+			2. 接收
+				import { ActivatedRoute } from '@angular/router';
+				constructor(
+					private router: ActivatedRoute
+				) { }
+				this.router.queryParams.subscribe((value:any) => {
+					console.log(value);
+				})
+		- 動態路由傳值
+			1. app-routing.module.ts 配置動態路由
+				import { NewscontentComponent } from './component4/newscontent/newscontent.component';
+				const routes: Routes = [
+					{
+						path: "news/newsContent/:aid",
+						component: NewscontentComponent
+					}
+				];
+			2. 傳值
+				<li *ngFor="let item of list; let i=index">
+					<a [routerLink]="[ '/news/newsContent', i ]">{{i}}---{{item}}</a>
+				</li>
+			3. 接收
+				import { ActivatedRoute } from '@angular/router';
+				constructor(
+					private router: ActivatedRoute
+				) { }
+				this.router.params.subscribe((value) => {
+					console.log(value);
+				})
+		- js 跳轉
+			- 動態路由的 js 跳轉
+				1. 引入 Router 模塊 並聲明
+					import { Route } from '@angular/router';
+					constructor(
+						private router: Route
+					) { }
+				2. 跳轉頁面
+					goProContent(){
+						//普通路由
+						this.router.navigate(["/home"]);
+						//動態路由
+						this.router.navigate(["/product/productContent","123"]);
+					}
+			- 路由 get 傳值 js 跳轉
+				1. 引入 Router 模塊 並聲明
+					import { Route, NavigationExtras } from '@angular/router';
+					constructor(
+						private router: Route
+					) { }
+				2. 跳轉頁面
+					goProContent(){
+						let queryParams: NavigationExtras = {
+							queryParams: {pid: 123}
+						}
+						this.router.navigate(["/product/productContent"], queryParams);
+					}
+		

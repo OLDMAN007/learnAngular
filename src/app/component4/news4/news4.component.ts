@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class News4Component implements OnInit {
 
+  public list:any[] = [];
+
   constructor() { }
 
   ngOnInit(): void {
+
+    for(var i = 0; i < 10; i++){
+      this.list.push("這是第" + i + "條新聞");
+    }
   }
 
 }

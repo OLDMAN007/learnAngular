@@ -1,1 +1,16 @@
 <p>news4 works!</p>
+<hr>
+
+<!-- get傳值 -->
+<!-- <ul>
+    <li *ngFor="let item of list; let key = index">
+        <a [routerLink]="[ '/news/newsContent' ]" [queryParams]="{aid:key}">{{key}}---{{item}}</a>
+    </li>
+</ul> -->
+
+<!-- 動態路由傳值 -->
+<ul>
+    <li *ngFor="let item of list; let i=index">
+        <a [routerLink]="[ '/news/newsContent', i ]">{{i}}---{{item}}</a>
+    </li>
+</ul>

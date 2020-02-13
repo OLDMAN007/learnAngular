@@ -40,6 +40,8 @@ import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { Home4Component } from './component4/home4/home4.component';
 import { News4Component } from './component4/news4/news4.component';
 import { Product4Component } from './component4/product4/product4.component';
+import { NewscontentComponent } from './component4/newscontent/newscontent.component';
+import { ProductcontentComponent } from './component4/productcontent/productcontent.component';
 
 /**@Ngmodule裝飾器 接收一個願數據對象，告訴angular如何編譯和啟動應用 */
 @NgModule({
@@ -62,7 +64,9 @@ import { Product4Component } from './component4/product4/product4.component';
     New3Component,
     Home4Component,
     News4Component,
-    Product4Component
+    Product4Component,
+    NewscontentComponent,
+    ProductcontentComponent
   ],
   /**配置當前模塊運行依賴的其他模塊 */
   imports: [
