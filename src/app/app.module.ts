@@ -43,6 +43,14 @@ import { Product4Component } from './component4/product4/product4.component';
 import { NewscontentComponent } from './component4/newscontent/newscontent.component';
 import { ProductcontentComponent } from './component4/productcontent/productcontent.component';
 
+//component5
+import { Home5Component } from './component5/home5/home5.component';
+import { Product5Component } from './component5/product5/product5.component';
+import { WelcomeComponent } from './component5/home5/welcome/welcome.component';
+import { SettingComponent } from './component5/home5/setting/setting.component';
+import { ProCateComponent } from './component5/product5/pro-cate/pro-cate.component';
+import { ProListComponent } from './component5/product5/pro-list/pro-list.component';
+
 /**@Ngmodule裝飾器 接收一個願數據對象，告訴angular如何編譯和啟動應用 */
 @NgModule({
   /**配置當前項目運行的組件 */
@@ -66,7 +74,13 @@ import { ProductcontentComponent } from './component4/productcontent/productcont
     News4Component,
     Product4Component,
     NewscontentComponent,
-    ProductcontentComponent
+    ProductcontentComponent,
+    Home5Component,
+    Product5Component,
+    WelcomeComponent,
+    SettingComponent,
+    ProCateComponent,
+    ProListComponent
   ],
   /**配置當前模塊運行依賴的其他模塊 */
   imports: [

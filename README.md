@@ -393,7 +393,7 @@
 						path: "news/newsContent/:aid",
 						component: NewscontentComponent
 					}
-			]; 
+				]; 
 
 		2. 傳值
  
@@ -444,5 +444,26 @@
 						}
 						this.router.navigate(["/product/productContent"], queryParams);
 					}
+- 父子路由（嵌套路由）
+	1. app-routing.module.ts 配置父子路由
 
+			{
+				path: "home",
+				component: Home5Component,
+				children: [
+					{
+						path: "welcome",
+						component: WelcomeComponent
+					},{
+						path: "setting",
+						component: SettingComponent
+					},{
+						path: "**",
+						redirectTo: "welcome"
+					}
+				]
+			}
+	2. 父組件頁面引用即可
+		
+			<router-outlet></router-outlet>
 	
